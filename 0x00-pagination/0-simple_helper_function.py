@@ -4,6 +4,7 @@
 from typing import Tuple
 """ import Tuple module """
 
+
 def index_range(page: int, page_size: int) -> Tuple[int, int]:
     """ function that takes two integers to return a tuple """
     start_index = (page - 1) * page_size
