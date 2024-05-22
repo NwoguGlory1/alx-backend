@@ -51,8 +51,7 @@ class Server:
 
         return dataset[start_index:end_index]
 
-    def get_hyper(self, page: int = 1, page_size: int = 10)
-    -> Dic[str, Union[int, List[List], Optional[int]]]:
+    def get_hyper(self, page: int = 1, page_size: int = 10) -> Dict[str, Union[int, List[List], Optional[int]]]:
         """
         method that takes the same arguments (and defaults) as get_page
         Returns a dictionary
