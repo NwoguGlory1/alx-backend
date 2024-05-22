@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """ Basic dictionary script """
 from base_caching import BaseCaching
-""" """
+""" imports BaseCaching class from the .py file"""
 
 
 class BasicCache(BaseCaching):
