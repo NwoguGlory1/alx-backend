@@ -9,12 +9,23 @@ class FIFOCache(BaseCaching):
     def __init__(self):
         """ Constructor """
         super().__init__()
+        self.order = []
+
     def put(self, key, item):
         """ method that add an item in the cache """
         if key is None or item is None:
             return
-        self.cache_data[key] = item
 
+        if key in self.cache_data:
+            self.order.remove(key)
+            """ remove key if it already exists"""
+        self.cache_data[key] = item
+        self.order.append(key)
+
+        if len(self.cache_data) > BaseCaching.MAX_ITEMS:
+            oldest_firstkey = self.order.pop(0)
+            del self.cache_data[oldest_firstkey]
+            print(f"DISCARD: {oldest_firstkey}")
 
     def get(self, key):
         """ method that get an item by key"""
