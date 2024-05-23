@@ -29,7 +29,7 @@ class MRUCache(BaseCaching):
         # Add the key to the order list
 
         if len(self.cache_data) > BaseCaching.MAX_ITEMS:
-            most_recently_used_key = self.order.pop(-1)
+            most_recently_used_key = self.order.pop(-2)
             # Removes most recently used key located at end of self.order
             del self.cache_data[most_recently_used_key]
             # Remove newest key value pair
