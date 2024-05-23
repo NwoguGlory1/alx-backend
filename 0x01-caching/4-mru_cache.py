@@ -30,7 +30,9 @@ class MRUCache(BaseCaching):
 
         if len(self.cache_data) > BaseCaching.MAX_ITEMS:
             most_recently_used_key = self.order.pop(-2)
-            # Removes most recently used key located at end of self.order
+            # Removes second most recently used key cos most recent
+            # would mean the key you wan add that made cache to exceed
+
             del self.cache_data[most_recently_used_key]
             # Remove newest key value pair
             print(f"DISCARD: {most_recently_used_key}")
