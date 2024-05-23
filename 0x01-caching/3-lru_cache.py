@@ -39,4 +39,9 @@ class LRUCache(BaseCaching):
         """ method that get an item by key"""
         if key is None or key not in self.cache_data:
             return None
+
+        self.order.remove(key)
+        # Removes the key from its current position in the self.order list
+        self.order.append(key)
+        # Appends the key to end of list indicating most recently used
         return self.cache_data.get(key)
