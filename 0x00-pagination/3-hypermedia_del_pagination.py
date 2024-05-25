@@ -6,6 +6,7 @@ Deletion-resilient hypermedia pagination
 import csv
 import math
 from typing import List, Dict
+""" imports necessary module"""
 
 
 class Server:
@@ -40,6 +41,10 @@ class Server:
         return self.__indexed_dataset
 
     def get_hyper_index(self, index: int = None, page_size: int = 10) -> Dict:
+        """
+        Deletion-resilient hypermedia pagination method
+        Returns a dictionary with pagination information
+        """
         assert index is not None and index >= 0
         assert page_size > 0
 
