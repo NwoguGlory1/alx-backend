@@ -58,7 +58,7 @@ class Server:
             current_index += 1
 
         next_index = current_index if current_index < dataset_size else None
-        
+
         dict_result = {
                 "index": index,
                 "next_index": next_index,
