@@ -7,7 +7,7 @@ from flask import Flask, render_template
 app = Flask(__name__)
 
 
-@app.route('/')
+@app.route('/', methods=['GET'], strict_slashes=False)
 """
 defines a root in Flask app,
 '/' will be accessed when user vivits root URL
