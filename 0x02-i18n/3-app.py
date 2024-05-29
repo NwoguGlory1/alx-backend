@@ -2,8 +2,8 @@
 
 """ Module for trying out Babel i18n """
 
-from flask_babel import Babel
-from flask import Flask, render_template
+from flask_babel import Babel, _
+from flask import Flask, render_template, request
 """ imports necessary module"""
 
 
@@ -25,7 +25,7 @@ def get_locale():
     return request.accept_languages.best_match(app.config['LANGUAGES'])
 
 
-@app.route('/', methods=['GET'], strict_slashes=False)
+@app.route('/')
 def index() -> str:
     """Renders a Basic Template for Babel Implementation"""
     return render_template("0-index.html")
