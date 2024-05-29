@@ -1,10 +1,8 @@
 #!/usr/bin/env python3
-
 """ Module for trying out Babel i18n """
 
 from flask_babel import Babel, _
 from flask import Flask, render_template, request
-""" imports necessary module"""
 
 
 class Config:
