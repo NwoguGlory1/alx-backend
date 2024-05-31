@@ -33,7 +33,7 @@ def get_locale(request) -> str:
 @app.route('/')
 def index() -> str:
     """Renders a Basic Template for Babel Implementation"""
-    return render_template("0-index.html")
+    return render_template("4-index.html")
 
 
 if __name__ == "__main__":
