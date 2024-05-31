@@ -20,6 +20,7 @@ babel = Babel(app)
 
 SUPPORTED_LOCALES = ['en', 'fr']
 
+
 @babel.localeselector
 def get_locale(request):
     """Determine the best match with our supported languages."""
