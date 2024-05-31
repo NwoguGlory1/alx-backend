@@ -21,7 +21,7 @@ SUPPORTED_LOCALES = ['en', 'fr']
 
 
 @babel.localeselector
-def get_locale(request)-> str:
+def get_locale(request) -> str:
     """Determine the best match with our supported languages."""
     locale = request.args.get('locale')
     if locale in SUPPORTED_LOCALES:
