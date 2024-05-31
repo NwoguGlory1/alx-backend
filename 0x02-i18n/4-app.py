@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-
 """ Module for trying out Babel i18n """
 
 from flask_babel import Babel, _
@@ -22,7 +21,7 @@ SUPPORTED_LOCALES = ['en', 'fr']
 
 
 @babel.localeselector
-def get_locale(request):
+def get_locale(request: Request)-> str:
     """Determine the best match with our supported languages."""
     locale = request.args.get('locale')
     if locale in SUPPORTED_LOCALES:
