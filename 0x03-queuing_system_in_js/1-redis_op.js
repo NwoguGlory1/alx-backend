@@ -10,18 +10,19 @@ client.on('error', (err) => {
   console.log(`Redis client not connected to the server: ${err.message}`);
 });
 
+// Function to set a value for a key
 function setNewSchool(schoolName, value){
-  client.SET(schoolName, value, (err, result)=> {
-    redis.print(`Set value for key ${schoolName} to ${value}`);
-  });
+  client.SET(schoolName, value, redis.print );
 }
 
+// Function to get the value of a key, log it to console
 function displaySchoolValue(schoolName) {
   client.GET(schoolName, (err, value) => {
-    console.log('Get value for key ${schoolName}: ${value}`);
+    console.log(`${value}`);
   });
 }
 
+// Test the functions
 displaySchoolValue('Holberton');
 setNewSchool('HolbertonSanFrancisco', '100');
 displaySchoolValue('HolbertonSanFrancisco');
