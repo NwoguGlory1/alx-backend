@@ -1,5 +1,17 @@
 import kue from 'kue';
-const queue = kue.createQueue('push_notification_code');
+const redis = require('redis');
+
+// Create a Redis client
+const client = redis.createClient();
+
+// Create a Kue queue with the Redis client
+const queue = kue.createQueue('push_notification_code', {
+  redis: {
+    createClientFactory: function() {
+      return client;
+    }
+  }
+});
 
 // Create an object containing the Job data
 const object_jobdata = {
