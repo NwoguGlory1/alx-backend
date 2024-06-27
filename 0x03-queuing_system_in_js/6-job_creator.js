@@ -1,17 +1,5 @@
 import kue from 'kue';
-const redis = require('redis');
-
-// Create a Redis client
-const client = redis.createClient();
-
-// Create a Kue queue with the Redis client
-const queue = kue.createQueue('push_notification_code', {
-  redis: {
-    createClientFactory: function() {
-      return client;
-    }
-  }
-});
+const queue = kue.createQueue();
 
 // Create an object containing the Job data
 const object_jobdata = {
@@ -19,14 +7,17 @@ const object_jobdata = {
   message: 'This is a test message'
 };
 
+const queueName = 'push_notification_code';
+
 // Create a job with the object created before
-const job = queue.create('message', object_jobdata).save((err) => {
+const job = queue.create(queueName, object_jobdata).save((err) => {
   if (!err) {
-    console.log(`Notification job created: ${job.id}`)
-    job.on('complete', () => {
-      console.log('Notification job completed');
-    });
-  } else {
+    console.log(`Notification job created: ${job.id}`);
+});
+job.on('complete', () => {
+    console.log('Notification job completed');
+  });
+
+job.on('failed', () => {
     console.log(`Notification job failed`)
-  }
 });
